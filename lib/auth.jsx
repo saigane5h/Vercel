@@ -1,9 +1,11 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 const AuthContext = createContext(null)
 
+// Demo credentials — replace with real auth (NextAuth, Supabase, etc.)
 const DEMO_USERS = [
   { email: 'admin@insurancehub.com', password: 'admin123', name: 'Admin User', role: 'admin' },
   { email: 'learner@insurancehub.com', password: 'learn123', name: 'Demo Learner', role: 'learner' },

@@ -1,131 +1,216 @@
 import Link from 'next/link'
-import { BookOpen, Shield, TrendingUp, Award, Play, ChevronRight, Star, Users, Clock } from 'lucide-react'
+import CourseCard from '@/components/CourseCard'
+import { courses, policyVideos, promotions, stats } from '@/lib/data'
+import { Play, ChevronRight, Shield, Award, BookOpen, TrendingUp, Clock, Calendar, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
+  const featuredCourses = courses.slice(0, 3)
+
   return (
-    <div className="min-h-screen">
-      <section className="relative hero-bg noise min-h-[92vh] flex items-center overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gold-400/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-navy-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="max-w-3xl">
-            <div className="fade-up fade-up-1 inline-flex items-center gap-2 border border-gold-400/20 bg-gold-400/5 rounded-full px-4 py-2 mb-8">
-              <Shield size={14} className="text-gold-400" />
-              <span className="text-xs font-medium text-gold-400 tracking-wide uppercase">BFSI Certified Learning Platform</span>
-            </div>
-            <h1 className="fade-up fade-up-2 font-display text-5xl sm:text-6xl lg:text-7xl font-bold leading-none tracking-tight mb-6">
-              <span className="text-white">Master Insurance.</span><br />
-              <span className="shimmer-gold">Lead the Industry.</span>
-            </h1>
-            <p className="fade-up fade-up-3 text-lg text-white/55 leading-relaxed max-w-xl mb-10">
-              The professional learning platform built for BFSI teams. Structured courses, regulatory updates, and expert-led videos — all in one secure hub.
-            </p>
-            <div className="fade-up fade-up-4 flex flex-col sm:flex-row gap-4">
-              <Link href="/login" className="inline-flex items-center justify-center gap-2 bg-gold-400 text-navy-900 px-7 py-3.5 rounded-xl font-semibold text-base hover:bg-gold-500 transition-all hover:shadow-lg hover:shadow-gold-400/20 hover:-translate-y-0.5">
-                Access Your Courses <ChevronRight size={18} />
-              </Link>
-              <a href="#features" className="inline-flex items-center justify-center gap-2 border border-white/15 text-white px-7 py-3.5 rounded-xl font-medium text-base hover:border-white/30 hover:bg-white/5 transition-all">
-                <Play size={16} className="text-gold-400" /> See How It Works
-              </a>
-            </div>
-            <div className="fade-up fade-up-4 flex flex-wrap items-center gap-6 mt-12 pt-8 border-t border-white/8">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {['bg-blue-400', 'bg-gold-400', 'bg-green-400', 'bg-purple-400'].map((c, i) => (
-                    <div key={i} className={`w-7 h-7 rounded-full ${c} border-2 border-navy-900`} />
-                  ))}
-                </div>
-                <span className="text-sm text-white/50">10,000+ learners</span>
+    <div>
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <section className="hero-bg relative overflow-hidden">
+        {/* Decorative circles */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-red/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-navy-700/40 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left */}
+            <div>
+              <div className="fade-up fade-up-1 inline-flex items-center gap-2 bg-red/15 border border-red/30 rounded-full px-4 py-1.5 mb-6">
+                <Shield size={13} className="text-red" />
+                <span className="text-xs font-semibold text-red uppercase tracking-wider">BFSI Certified Platform</span>
               </div>
-              <div className="flex items-center gap-1.5">
-                {[1,2,3,4,5].map(i => <Star key={i} size={14} className="fill-gold-400 text-gold-400" />)}
-                <span className="text-sm text-white/50 ml-1">4.9 rating</span>
+
+              <h1 className="fade-up fade-up-2 font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+                Learn Insurance.<br />
+                <span className="shimmer-red">Lead the Market.</span>
+              </h1>
+
+              <p className="fade-up fade-up-3 text-white/60 text-lg leading-relaxed mb-8 max-w-lg">
+                India's professional BFSI learning platform — structured courses, IRDAI compliance videos, and expert-led training for every insurance career stage.
+              </p>
+
+              <div className="fade-up fade-up-4 flex flex-wrap gap-4">
+                <Link href="/courses" className="btn-red px-7 py-3.5 text-base inline-flex items-center gap-2">
+                  Explore Courses <ChevronRight size={18} />
+                </Link>
+                <Link href="/policies" className="btn-outline px-7 py-3.5 text-base inline-flex items-center gap-2">
+                  <Play size={16} /> Policy Updates
+                </Link>
               </div>
-              <div className="text-sm text-white/50">IRDAI Compliant Content</div>
+
+              {/* Stats row */}
+              <div className="fade-up fade-up-4 grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-8 border-t border-white/10">
+                {stats.map((s, i) => (
+                  <div key={i}>
+                    <div className="font-display text-2xl font-bold text-white">{s.value}</div>
+                    <div className="text-xs text-white/45 mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — course preview cards */}
+            <div className="hidden lg:block relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-navy-800 via-transparent to-transparent z-10 pointer-events-none" />
+              <div className="grid grid-cols-2 gap-4 opacity-90">
+                {courses.slice(0, 4).map((course, i) => (
+                  <div key={course.id} className={`bg-white/10 backdrop-blur-sm border border-white/15 rounded-xl p-4 ${i === 1 ? 'mt-6' : ''} ${i === 3 ? '-mt-6' : ''}`}>
+                    <img src={course.thumbnail} alt={course.title} className="w-full h-24 object-cover rounded-lg mb-3" />
+                    <p className="text-xs font-semibold text-red mb-1">{course.category}</p>
+                    <p className="text-white text-sm font-medium leading-snug line-clamp-2">{course.title}</p>
+                    <div className="flex items-center gap-1.5 mt-2 text-white/40 text-xs">
+                      <Clock size={10} />{course.duration}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-navy-800/50 py-3 overflow-hidden">
-          <div className="flex gap-12 whitespace-nowrap">
+
+        {/* Bottom ticker */}
+        <div className="border-t border-white/10 bg-navy-800/60 py-3">
+          <div className="max-w-7xl mx-auto px-4 flex flex-wrap gap-x-10 gap-y-1 items-center">
             {['Life Insurance', 'Health Insurance', 'Motor Insurance', 'IRDAI Compliance', 'Bancassurance', 'Claims Management', 'Risk Assessment', 'Policy Underwriting'].map((t, i) => (
-              <span key={i} className="text-xs text-white/30 uppercase tracking-widest flex items-center gap-3">
-                <span className="text-gold-400">◆</span> {t}
+              <span key={i} className="text-xs text-white/30 uppercase tracking-widest flex items-center gap-2">
+                <span className="text-red text-[8px]">●</span> {t}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-white/5 bg-navy-800/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* ── FEATURED COURSES ─────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-red text-sm font-semibold uppercase tracking-wider mb-1">Learn at your pace</p>
+            <h2 className="font-display text-3xl font-bold text-navy section-title">Featured Courses</h2>
+          </div>
+          <Link href="/courses" className="hidden sm:flex items-center gap-1 text-red text-sm font-semibold hover:gap-2 transition-all">
+            View all courses <ArrowRight size={15} />
+          </Link>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredCourses.map(course => (
+            <CourseCard key={course.id} course={course} />
+          ))}
+        </div>
+
+        <div className="sm:hidden mt-6 text-center">
+          <Link href="/courses" className="btn-red px-6 py-2.5 text-sm inline-flex items-center gap-1.5">
+            View all courses <ChevronRight size={15} />
+          </Link>
+        </div>
+      </section>
+
+      {/* ── WHY LEARN HERE ───────────────────────────────────── */}
+      <section className="bg-white border-y border-gray-200 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-red text-sm font-semibold uppercase tracking-wider mb-1">Why choose us</p>
+            <h2 className="font-display text-3xl font-bold text-navy">Everything your team needs</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { value: '50+', label: 'Expert Courses', icon: BookOpen },
-              { value: '200+', label: 'Video Lessons', icon: Play },
-              { value: '10K+', label: 'Professionals Trained', icon: Users },
-              { value: '98%', label: 'Completion Rate', icon: Award },
-            ].map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="flex justify-center mb-2"><stat.icon size={20} className="text-gold-400/60" /></div>
-                <div className="font-display text-3xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-white/40">{stat.label}</div>
+              { icon: BookOpen, title: 'Structured Learning', desc: 'Curated paths for Life, Health, Motor, and Regulatory tracks.', color: 'bg-red/10 text-red' },
+              { icon: Play, title: 'Expert Videos', desc: 'Bite-sized lessons from seasoned BFSI professionals.', color: 'bg-blue-100 text-blue-600' },
+              { icon: Shield, title: 'IRDAI Compliant', desc: 'All content aligned with current regulatory guidelines.', color: 'bg-green-100 text-green-700' },
+              { icon: Award, title: 'Certifications', desc: 'Industry-recognised completion certificates for every course.', color: 'bg-purple-100 text-purple-700' },
+            ].map((f, i) => (
+              <div key={i} className="text-center p-6 rounded-2xl border border-gray-100 hover:border-red/20 hover:shadow-md transition-all">
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${f.color} mb-4`}>
+                  <f.icon size={22} />
+                </div>
+                <h3 className="font-semibold text-navy mb-2">{f.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="text-center mb-16">
-          <p className="text-gold-400 text-sm font-medium uppercase tracking-widest mb-3">Platform Features</p>
-          <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">Everything your team needs</h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">From regulatory training to sales enablement — structured learning for every BFSI role.</p>
+      {/* ── POLICY UPDATES ───────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <p className="text-red text-sm font-semibold uppercase tracking-wider mb-1">Stay compliant</p>
+            <h2 className="font-display text-3xl font-bold text-navy section-title">Policy Updates</h2>
+          </div>
+          <Link href="/policies" className="hidden sm:flex items-center gap-1 text-red text-sm font-semibold hover:gap-2 transition-all">
+            View all <ArrowRight size={15} />
+          </Link>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { icon: BookOpen, title: 'Structured Courses', desc: 'Curated learning paths for Life, Health, General Insurance, and Regulatory tracks.', color: 'text-gold-400', bg: 'bg-gold-400/10 border-gold-400/20' },
-            { icon: Play, title: 'Individual Video Lessons', desc: 'Bite-sized expert videos you can watch at your own pace, on any device.', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
-            { icon: TrendingUp, title: 'Promotions & Offers', desc: 'Exclusive deals on course bundles and team learning packages.', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
-            { icon: Shield, title: 'Policy Updates', desc: 'Stay ahead with IRDAI circulars, regulatory changes, and compliance briefings.', color: 'text-red-400', bg: 'bg-red-400/10 border-red-400/20' },
-            { icon: Award, title: 'BFSI Certification', desc: 'Industry-recognised completion certificates for every course you finish.', color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
-            { icon: Clock, title: 'Learn at Your Pace', desc: 'Access content anytime. Bookmark, replay, and track your progress seamlessly.', color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20' },
-          ].map((f, i) => (
-            <div key={i} className="card-glow rounded-2xl p-6 bg-navy-800/60">
-              <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl border ${f.bg} mb-4`}>
-                <f.icon size={20} className={f.color} />
+
+        <div className="grid sm:grid-cols-2 gap-5">
+          {policyVideos.slice(0, 4).map(pv => (
+            <Link href="/policies" key={pv.id} className="block group">
+              <div className="card p-5 flex gap-4 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-red/10 border border-red/15 flex items-center justify-center">
+                  <Shield size={20} className="text-red" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className={`badge ${pv.tagColor}`}>{pv.tag}</span>
+                    <span className="text-xs text-gray-400 flex items-center gap-1"><Calendar size={10} /> {pv.date}</span>
+                  </div>
+                  <h3 className="text-sm font-semibold text-navy group-hover:text-red transition-colors leading-snug mb-1">
+                    {pv.title}
+                  </h3>
+                  <div className="flex items-center gap-1 text-xs text-gray-400">
+                    <Clock size={10} /> {pv.duration}
+                  </div>
+                </div>
               </div>
-              <h3 className="font-display text-lg font-semibold text-white mb-2">{f.title}</h3>
-              <p className="text-white/50 text-sm leading-relaxed">{f.desc}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="relative rounded-3xl overflow-hidden border border-gold-400/15" style={{ background: 'linear-gradient(135deg, #0F2040 0%, #060D1F 100%)' }}>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(240,180,41,0.12),transparent_60%)]" />
-          <div className="relative px-8 py-14 md:py-16 text-center">
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4">
-              Ready to level up your <span className="text-gold-400">BFSI knowledge?</span>
-            </h2>
-            <p className="text-white/50 text-lg mb-8 max-w-xl mx-auto">Join thousands of insurance professionals already learning on the platform.</p>
-            <Link href="/login" className="inline-flex items-center gap-2 bg-gold-400 text-navy-900 px-8 py-4 rounded-xl font-bold text-base hover:bg-gold-500 transition-all hover:shadow-xl hover:shadow-gold-400/25 hover:-translate-y-1">
-              Sign In & Start Learning <ChevronRight size={18} />
-            </Link>
+      {/* ── PROMOTIONS BANNER ────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="relative rounded-2xl overflow-hidden hero-bg border border-white/5">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(227,24,55,0.2),transparent_60%)]" />
+          <div className="relative px-8 py-10 md:flex items-center justify-between gap-8">
+            <div>
+              <span className="badge bg-red/20 text-red mb-3">Limited Time</span>
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-2">
+                {promotions[0].title}
+              </h2>
+              <p className="text-white/55 text-base max-w-lg">{promotions[0].description}</p>
+            </div>
+            <div className="mt-6 md:mt-0 flex-shrink-0">
+              <Link href="/promotions" className="btn-red px-7 py-3.5 text-base inline-flex items-center gap-2 whitespace-nowrap">
+                {promotions[0].cta} <ChevronRight size={18} />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-white/5 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <BookOpen size={16} className="text-gold-400" />
-            <span className="font-display text-sm text-white/60">Insurance Learning Hub</span>
+      {/* ── ALL COURSES CTA ──────────────────────────────────── */}
+      <section className="bg-gray-100 border-t border-gray-200 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <p className="text-red text-sm font-semibold uppercase tracking-wider mb-1">Full catalog</p>
+              <h2 className="font-display text-3xl font-bold text-navy section-title">More Courses</h2>
+            </div>
+            <Link href="/courses" className="hidden sm:flex items-center gap-1 text-red text-sm font-semibold hover:gap-2 transition-all">
+              Browse all <ArrowRight size={15} />
+            </Link>
           </div>
-          <p className="text-xs text-white/25">© 2025 Insurance Learning Hub. All rights reserved.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {courses.slice(3).map(course => (
+              <CourseCard key={course.id} course={course} />
+            ))}
+          </div>
         </div>
-      </footer>
+      </section>
     </div>
   )
 }

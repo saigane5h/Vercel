@@ -1,50 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './lib/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
-        navy: {
-          900: '#060D1F',
-          800: '#0A1628',
-          700: '#0F2040',
-          600: '#152B55',
-          500: '#1E3A6E',
-        },
-        gold: {
-          400: '#F0B429',
-          500: '#D4980A',
-          600: '#B07F00',
-        },
-        charcoal: {
-          800: '#1A1F2E',
-          700: '#242938',
-          600: '#2E3447',
-        }
+        red: { DEFAULT: '#E31837', dark: '#B5122B', light: '#FF3355' },
+        navy: { DEFAULT: '#1A1A2E', 800: '#16213E', 700: '#0F3460' },
+        gray: { 50: '#F8F9FA', 100: '#F1F3F5', 200: '#E9ECEF', 400: '#ADB5BD', 600: '#6C757D' },
       },
       fontFamily: {
-        display: ['var(--font-display)', 'serif'],
-        body: ['var(--font-body)', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
       },
-      animation: {
-        'fade-up': 'fadeUp 0.6s ease forwards',
-        'shimmer': 'shimmer 2s infinite',
-        'pulse-slow': 'pulse 3s infinite',
-      },
-      keyframes: {
-        fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
-        }
-      }
     },
   },
   plugins: [],
