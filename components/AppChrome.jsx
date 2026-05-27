@@ -8,7 +8,7 @@ const BARE_ROUTES = ['/login', '/portal']
 
 export default function AppChrome({ children }) {
   const pathname = usePathname()
-  const bare = BARE_ROUTES.some(r => pathname === r || pathname.startsWith(r + '/'))
+  const bare = pathname === '/' || BARE_ROUTES.some(r => pathname === r || pathname.startsWith(r + '/'))
 
   if (bare) return <main>{children}</main>
 

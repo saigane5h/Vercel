@@ -107,7 +107,7 @@ export default function LoginPage() {
               {USEFUL_LINKS.map(l => (
                 <span key={l} className="text-red flex items-center gap-1">› {l}</span>
               ))}
-              <Link href="/" className="text-red font-semibold flex items-center gap-1">› Academy</Link>
+              <Link href="/academy" className="text-red font-semibold flex items-center gap-1">› Academy</Link>
             </div>
           </div>
 

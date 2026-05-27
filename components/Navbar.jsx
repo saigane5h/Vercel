@@ -5,10 +5,9 @@ import { usePathname } from 'next/navigation'
 import { Play, Menu, X, Search } from 'lucide-react'
 
 const navLinks = [
-  { href: '/', label: 'Home' },
+  { href: '/academy', label: 'Home' },
   { href: '/courses', label: 'Guides' },
   { href: '/policies', label: 'Updates' },
-  // { href: '/promotions', label: 'Offers & Rewards' },
 ]
 
 export default function Navbar() {
@@ -19,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link href="/academy" className="flex items-center gap-2.5 flex-shrink-0">
             <div className="w-8 h-8 rounded-md bg-red flex items-center justify-center">
               <span className="text-white font-extrabold text-base leading-none">H</span>
             </div>
@@ -50,7 +49,8 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/portal" className="ml-1 text-sm font-semibold text-red hover:text-red-dark transition-colors px-3 py-2">My Policies</Link>
+            <Link href="/login" className="ml-1 text-sm font-medium text-gray-600 hover:text-red transition-colors px-3 py-2">Login</Link>
+            <Link href="/portal" className="text-sm font-semibold text-white bg-red hover:bg-red-dark transition-colors px-4 py-2 rounded-lg">My Policies</Link>
           </nav>
 
           <button className="md:hidden text-gray-600 hover:text-navy" onClick={() => setOpen(!open)}>
@@ -72,6 +72,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link href="/login" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-gray-600">Login</Link>
           <Link href="/portal" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-semibold text-red">My Policies</Link>
         </div>
       )}

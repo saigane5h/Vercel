@@ -67,8 +67,17 @@ function SearchVideoBar({ onPlay }) {
             onChange={e => { setQ(e.target.value); setOpen(true) }}
             onFocus={() => setOpen(true)}
             placeholder="Search policies, FAQs, claims…"
-            className="w-full bg-white/5 border border-white/15 rounded-full pl-11 pr-4 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-red"
+            className="w-full bg-white/5 border border-white/15 rounded-full pl-11 pr-10 py-3 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-red"
           />
+          {(q || open) && (
+            <button
+              onClick={() => { setQ(''); setOpen(false) }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70"
+              aria-label="Clear search"
+            >
+              <X size={14} />
+            </button>
+          )}
         </div>
         <button onClick={() => setOpen(true)} className="bg-red text-white rounded-full px-6 font-semibold text-sm flex items-center gap-2 whitespace-nowrap">
           <Play size={14} /> Video answers
@@ -118,7 +127,7 @@ function ShortsStrip() {
           <span className="bg-red text-white text-xs font-bold px-2 py-0.5 rounded flex items-center gap-1"><Play size={10} /> Shorts</span>
           <h3 className="text-white font-bold">Personalised for you</h3>
         </div>
-        <Link href="/" className="text-white/50 text-sm hover:text-white">See all →</Link>
+        <Link href="/academy" className="text-white/50 text-sm hover:text-white">See all →</Link>
       </div>
       <div className="flex gap-3 overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
         {personalisedShorts.map((reel) => (
@@ -177,7 +186,7 @@ function PortalDashboard() {
           <span className="text-white/60">My Account</span>
           <span className="text-white/60">Receipts</span>
           <span className="text-white/60">Service Requests</span>
-          <Link href="/" className="text-red font-semibold">Academy</Link>
+          <Link href="/academy" className="text-red font-semibold">Academy</Link>
           <button onClick={logout} className="text-white/60 hover:text-white">Logout</button>
         </nav>
       </header>
@@ -203,7 +212,7 @@ function PortalDashboard() {
                 <Link key={c} href="/courses" className="text-xs text-white/70 border border-white/20 rounded-full px-3 py-1 hover:border-red hover:text-red">{c}</Link>
               ))}
             </div>
-            <Link href="/" className="text-red text-sm font-semibold mt-4 inline-block">Learn more on the Academy →</Link>
+            <Link href="/academy" className="text-red text-sm font-semibold mt-4 inline-block">Learn more on the Academy →</Link>
           </div>
 
           {portalPolicies.map(p => <PolicyCard key={p.id} policy={p} onPlay={play} />)}
