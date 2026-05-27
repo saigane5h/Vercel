@@ -109,7 +109,7 @@ export default function VideoLandingPage() {
               )}
               <div className="mt-3 flex items-center gap-1.5 text-xs text-gray-400">
                 <BadgeCheck size={12} className="text-red" />
-                Tata AIA Life Insurance Academy
+                HDFC Life Academy
               </div>
             </div>
 

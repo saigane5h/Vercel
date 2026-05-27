@@ -1,6 +1,20 @@
-# Tata AIA Life Insurance Academy — Project Summary
+# HDFC Life Academy — Project Summary
 
-A consumer-facing video-first learning hub for life insurance, built as a Next.js prototype. The site explains coverage, claims, planning, riders and regulatory updates through curated video content embedded from the kPoint GCC platform.
+A consumer-facing video-first learning hub for life insurance, built as a Next.js prototype. The site explains coverage, claims, planning, riders and regulatory updates through curated video content embedded from the kPoint GCC platform. It also includes a mock-auth-gated **policyholder portal** ("My Policies") that videofies the logged-in experience.
+
+## Surfaces & auth
+
+- **Academy** at `/` (plus `/video/[id]`, `/courses`, `/courses/[id]`, `/policies`) — anonymous-accessible, rebranded HDFC Life.
+- **Login** at `/login` — visual replica of the HDFC Life login page (Individual/Special tabs, Mobile/Email/Policy/Client tabs, Mobile+DOB+Captcha fields, WhatsApp panel, Useful Links incl. an Academy link). Mock auth: any input logs in.
+- **Portal** at `/portal` — the "My Policies" dashboard, gated by `RequireAuth` (`components/ProtectedRoute.jsx`); unauthenticated visitors redirect to `/login`.
+- Auth is a client-side context in `lib/auth.jsx` (`AuthProvider` + `useAuth`), persisted via `localStorage`. `components/AppChrome.jsx` hides the academy Navbar/Footer on `/login` and `/portal`.
+- Cross-links: academy navbar → "My Policies"; portal header + summary card → "Academy"; login Useful Links → "Academy".
+
+## Portal video touchpoints (reuse the existing kPoint SDK)
+
+1. **Search → results overlay → player.** The dashboard search bar filters `featuredVideos`+`policyVideos` into a results list; clicking one opens a `VideoOverlay` (GCC long-form embed, Esc/X/click-outside to close).
+2. **Policy-card play icon → player.** Each policy card (`portalPolicies` in `lib/data.js`) maps to a specific explainer `gccId`, opened in the same overlay via its red ▶ button.
+3. **Shorts strip → VXPlayer popup.** "Personalised for you" reuses the VXPlayer reels wiring (`window.VXPlayer(..., {type:'reels', mode:'popup'})` + `.jumpTo(id)`) over `personalisedShorts`.
 
 ---
 

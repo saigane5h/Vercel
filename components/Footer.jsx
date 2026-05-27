@@ -9,11 +9,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-red flex items-center justify-center">
-                <Play size={14} className="text-white ml-0.5" />
+              <div className="w-8 h-8 rounded-md bg-red flex items-center justify-center">
+                <span className="text-white font-extrabold text-base leading-none">H</span>
               </div>
               <div className="leading-tight">
-                <span className="block font-bold text-white text-xs">Tata AIA Life Insurance</span>
+                <span className="block font-bold text-white text-xs">HDFC Life</span>
                 <span className="block font-bold text-red text-xs -mt-0.5">Academy</span>
               </div>
             </div>
@@ -63,7 +63,7 @@ export default function Footer() {
             </ul>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-white/45 text-xs">
-                <Mail size={12} className="text-red flex-shrink-0" /> support@tataaia-academy.in
+                <Mail size={12} className="text-red flex-shrink-0" /> service@hdfclife.com
               </div>
               <div className="flex items-center gap-2 text-white/45 text-xs">
                 <Phone size={12} className="text-red flex-shrink-0" /> 1800-XXX-XXXX
@@ -74,9 +74,9 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-6">
           <p className="text-white/25 text-xs leading-relaxed">
-            Tata AIA Life Insurance Company Limited. IRDAI Registration No. 110. For informational purposes only — not a solicitation or offer to sell insurance products.
+            HDFC Life Insurance Company Limited. IRDAI Registration No. 101. For informational purposes only — not a solicitation or offer to sell insurance products.
           </p>
-          <p className="text-white/20 text-xs mt-2">© 2025 Tata AIA Life Insurance Academy. All rights reserved.</p>
+          <p className="text-white/20 text-xs mt-2">© 2026 HDFC Life Academy. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -1,10 +1,10 @@
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Providers from '@/components/Providers'
+import AppChrome from '@/components/AppChrome'
 
 export const metadata = {
-  title: 'Insurance Learning Hub',
-  description: 'Professional BFSI learning platform — Insurance, Finance & Banking',
+  title: 'HDFC Life Academy',
+  description: 'Video-first life insurance learning hub and policyholder portal',
 }
 
 export default function RootLayout({ children }) {
@@ -16,9 +16,9 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-sans bg-gray-50 text-navy antialiased">
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <AppChrome>{children}</AppChrome>
+        </Providers>
       </body>
     </html>
   )

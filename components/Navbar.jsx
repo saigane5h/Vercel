@@ -20,15 +20,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-            <div className="w-8 h-8 rounded-lg bg-red flex items-center justify-center">
-              <Play size={14} className="text-white ml-0.5" />
+            <div className="w-8 h-8 rounded-md bg-red flex items-center justify-center">
+              <span className="text-white font-extrabold text-base leading-none">H</span>
             </div>
             <div className="leading-tight hidden sm:block">
-              <span className="block font-bold text-navy text-xs tracking-tight">Tata AIA Life Insurance</span>
+              <span className="block font-bold text-navy text-xs tracking-tight">HDFC Life</span>
               <span className="block font-bold text-red text-xs tracking-tight -mt-0.5">Academy</span>
             </div>
             <div className="leading-tight sm:hidden">
-              <span className="block font-bold text-red text-sm tracking-tight">AIA Academy</span>
+              <span className="block font-bold text-red text-sm tracking-tight">HDFC Academy</span>
             </div>
           </Link>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/courses" className="ml-1 text-sm text-gray-500 hover:text-red transition-colors font-medium px-3 py-2">Ask an expert</Link>
+            <Link href="/portal" className="ml-1 text-sm font-semibold text-red hover:text-red-dark transition-colors px-3 py-2">My Policies</Link>
           </nav>
 
           <button className="md:hidden text-gray-600 hover:text-navy" onClick={() => setOpen(!open)}>
@@ -72,7 +72,7 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/courses" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-gray-600 hover:text-navy">Ask an expert</Link>
+          <Link href="/portal" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-semibold text-red">My Policies</Link>
         </div>
       )}
     </header>

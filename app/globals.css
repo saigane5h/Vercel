@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --red: #E31837;
-  --red-dark: #B5122B;
-  --red-light: #FF3355;
+  --red: #ED1C24;
+  --red-dark: #C8102E;
+  --red-light: #FF3B45;
   --navy: #1A1A2E;
   --navy-800: #16213E;
   --navy-700: #0F3460;
@@ -24,7 +24,7 @@ body { background-color: #F8F9FA; overflow-x: hidden; color: #1A1A2E; }
 /* Scrollbar */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #F1F3F5; }
-::-webkit-scrollbar-thumb { background: #E31837; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #ED1C24; border-radius: 3px; }
 
 /* Hero gradient */
 .hero-bg {
@@ -33,7 +33,7 @@ body { background-color: #F8F9FA; overflow-x: hidden; color: #1A1A2E; }
 
 /* Red shimmer text */
 .shimmer-red {
-  background: linear-gradient(90deg, #E31837 0%, #FF6B6B 40%, #E31837 60%, #B5122B 100%);
+  background: linear-gradient(90deg, #ED1C24 0%, #FF6B6B 40%, #ED1C24 60%, #C8102E 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,8 +55,8 @@ body { background-color: #F8F9FA; overflow-x: hidden; color: #1A1A2E; }
   overflow: hidden;
 }
 .card:hover {
-  border-color: #E31837;
-  box-shadow: 0 8px 32px rgba(227, 24, 55, 0.12);
+  border-color: #ED1C24;
+  box-shadow: 0 8px 32px rgba(237, 28, 36, 0.12);
   transform: translateY(-3px);
 }
 
@@ -78,7 +78,7 @@ body { background-color: #F8F9FA; overflow-x: hidden; color: #1A1A2E; }
   display: block;
   width: 48px;
   height: 3px;
-  background: #E31837;
+  background: #ED1C24;
   border-radius: 2px;
   margin-top: 10px;
 }
@@ -101,21 +101,21 @@ body { background-color: #F8F9FA; overflow-x: hidden; color: #1A1A2E; }
 
 /* Tab active */
 .tab-active {
-  color: #E31837;
-  border-bottom: 2px solid #E31837;
+  color: #ED1C24;
+  border-bottom: 2px solid #ED1C24;
 }
 
 /* Red btn */
 .btn-red {
-  background: #E31837;
+  background: #ED1C24;
   color: #fff;
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.2s;
 }
 .btn-red:hover {
-  background: #B5122B;
-  box-shadow: 0 4px 16px rgba(227,24,55,0.3);
+  background: #C8102E;
+  box-shadow: 0 4px 16px rgba(237,28,36,0.3);
   transform: translateY(-1px);
 }
 

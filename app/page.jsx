@@ -526,7 +526,7 @@ export default function HomePage() {
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-5">
             <BadgeCheck size={13} className="text-red" />
-            <span className="text-xs font-semibold text-white/50 uppercase tracking-widest">Tata AIA Life Insurance Academy</span>
+            <span className="text-xs font-semibold text-white/50 uppercase tracking-widest">HDFC Life Academy</span>
           </div>
 
           {/* Headline + Hero video */}
@@ -809,7 +809,7 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center mb-10">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-navy mb-4">Not sure where to start?</h2>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Most people spend more time researching a phone than a life insurance policy. The Tata AIA Life Insurance Academy exists to change that — with everything you need to make a decision you're confident in.
+              Most people spend more time researching a phone than a life insurance policy. The HDFC Life Academy exists to change that — with everything you need to make a decision you're confident in.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4 mb-8">
