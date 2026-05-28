@@ -135,11 +135,13 @@ function ShortsStrip() {
             <div className="relative rounded-xl overflow-hidden" style={{ width: '120px', height: '200px', background: '#0d1b35' }}>
               <img src={vthumb(reel.id)} alt={reel.title} style={{ width: '120px', height: '200px', objectFit: 'cover' }}
                 onError={e => { e.target.style.display = 'none' }} />
+              {/* Bottom gradient for title legibility */}
+              <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/95 via-black/55 to-transparent pointer-events-none" />
               <span className="absolute top-2 right-2 bg-black/70 rounded px-1.5 py-0.5 text-[10px] text-white">{reel.duration}</span>
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="w-10 h-10 rounded-full bg-white/25 border-2 border-white/50 flex items-center justify-center group-hover:bg-red group-hover:border-red transition-all"><Play size={14} className="text-white ml-0.5" /></span>
               </div>
-              <p className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-semibold leading-tight">{reel.title}</p>
+              <p className="absolute bottom-2 left-2 right-2 text-white text-[11px] font-semibold leading-tight drop-shadow">{reel.title}</p>
             </div>
           </div>
         ))}
