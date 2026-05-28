@@ -24,11 +24,11 @@ const gccVideos = [
 ]
 
 const reels = [
-  { id: 'gcc-b95dd34d-81ca-424a-b9a4-05fe1df79a3c', title: 'What is Term Insurance?',             duration: '0:32' },
-  { id: 'gcc-cf479c95-9a01-4a71-8f2e-69a5da14833d', title: 'How to File a Claim in 3 Steps',      duration: '0:45' },
-  { id: 'gcc-b7ac4612-c863-4fe4-a12d-d6e034d1857a', title: 'ULIP vs Term — Which is Better?',     duration: '0:28' },
-  { id: 'gcc-6991f4ee-e383-4826-b6d8-92b3afbb20d9', title: 'Critical Illness — Are You Covered?', duration: '0:38' },
-  { id: 'gcc-7ed6a23c-5420-4cbf-861c-93f61c018aef', title: 'Tax Savings on Life Insurance',       duration: '0:41' },
+  { id: 'gcc-6bc3afc3-d5ba-4ae6-9a84-51305101f2b7', title: 'What is Term Insurance?',             duration: '0:32' },
+  { id: 'gcc-6947ca09-a39a-4c78-aa8c-b3860375cab9', title: 'How to File a Claim in 3 Steps',      duration: '0:45' },
+  { id: 'gcc-e2b96e60-15f9-4ae9-a02e-70e6bfce5b64', title: 'ULIP vs Term — Which is Better?',     duration: '0:28' },
+  { id: 'gcc-4e8fb7ac-5625-4a21-9ed9-90411ae5249a', title: 'Critical Illness — Are You Covered?', duration: '0:38' },
+  { id: 'gcc-09788a3f-3892-4c6b-bb9e-dfbe6991870e', title: 'Tax Savings on Life Insurance',       duration: '0:41' },
 ]
 
 // ── Hero video — light framed, click to play ──────────────────
