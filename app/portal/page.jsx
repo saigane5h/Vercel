@@ -160,10 +160,19 @@ function PolicyCard({ policy, onPlay }) {
         <span>{policy.premium} / {policy.premiumCadence}</span>
       </div>
       {policy.nudge && <div className="mt-3 bg-amber-100 text-amber-900 text-sm rounded px-3 py-2">{policy.nudge}</div>}
-      <button onClick={() => onPlay(policy.gccId, policy.planName)}
-        className="absolute bottom-5 right-5 w-11 h-11 rounded-full bg-red flex items-center justify-center shadow-lg hover:scale-110 transition-transform" aria-label="Play explainer">
-        <Play size={18} className="text-white ml-0.5" />
-      </button>
+      <div className="absolute bottom-5 right-5 flex items-center gap-2 group/explainer">
+        <span className="hidden sm:inline-block bg-white/10 border border-white/20 text-white/80 text-[11px] font-semibold rounded-full px-2.5 py-1">Policy Explainer</span>
+        <button onClick={() => onPlay(policy.gccId, policy.planName)}
+          title="Policy Explainer — watch the benefits of your plan"
+          className="relative w-11 h-11 rounded-full bg-red flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+          aria-label="Play Policy Explainer">
+          <Play size={18} className="text-white ml-0.5" />
+          {/* Hover tooltip (mobile + desktop) */}
+          <span className="pointer-events-none absolute right-full mr-3 top-1/2 -translate-y-1/2 whitespace-nowrap bg-navy-800 text-white text-xs font-medium px-3 py-1.5 rounded-md shadow-lg opacity-0 group-hover/explainer:opacity-100 transition-opacity sm:hidden">
+            Policy Explainer
+          </span>
+        </button>
+      </div>
     </div>
   )
 }

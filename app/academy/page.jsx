@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { useRouter } from 'next/navigation'
 import { featuredVideos, policyVideos } from '@/lib/data'
-import { Play, ArrowRight, ShieldCheck, Search, ChevronRight, ChevronLeft, Calendar, X, PiggyBank, TrendingUp, HeartPulse, Landmark, Receipt, Baby } from 'lucide-react'
+import { Play, ArrowRight, ShieldCheck, Search, ChevronRight, ChevronLeft, Calendar, X, PiggyBank, TrendingUp, HeartPulse, Landmark, Receipt } from 'lucide-react'
 
 const REELS_HOST = 'ktpl.kpoint.com'
 const HDFC_BLUE = '#0A3D7A'
@@ -16,11 +16,9 @@ const gthumb = (id) =>
   `https://${REELS_HOST}/media/data.ap-southeast-1.kpoint/ktpl.kpoint.in/ktpl.kpoint.com/kapsule/${id}/v4/i/thumb.jpg`
 
 const gccVideos = [
-  { id: 'gcc-3048f3df-f2d0-419c-a8c1-c84a660f8897', title: 'Life Insurance Explained' },
-  { id: 'gcc-a97a3c26-7011-4312-85a3-f0724dad58e5', title: 'Policy Benefits & Coverage' },
-  { id: 'gcc-5ef75afa-e47b-4863-bb23-09c5234b4dda', title: 'How to Choose the Right Plan' },
-  { id: 'gcc-f5cecef7-8272-4a12-a5bd-fe366ccfa195', title: 'Claim Settlement Guide' },
-  { id: 'gcc-6d7af790-a531-4f15-8754-0f20f6b9ed16', title: 'Smart Insurance Planning' },
+  { id: 'gcc-902b7d3d-ac93-4398-93f7-e7e649828291', title: 'Life Insurance Explained' },
+  { id: 'gcc-24057e74-0d4e-4654-b5fe-b3961390bd20', title: 'Policy Benefits & Coverage' },
+  { id: 'gcc-07658b0f-e728-4e28-b74f-7fa3ea6806da', title: 'How to Choose the Right Plan' },
 ]
 
 const reels = [
@@ -48,12 +46,12 @@ function HeroVideo() {
       {playing ? (
         <div className="video-wrapper">
           <div data-init-dynamic data-video-host="ktpl.kpoint.com"
-            data-kvideo-id="gcc-2ddf9906-1b9f-4ce2-80e3-da11af723c7e"
+            data-kvideo-id="gcc-b480fa3c-9cb6-4ce1-9364-ac9fb8710f65"
             data-state="PUBLISHED" data-samesite="true" style={{ width: '100%' }} />
         </div>
       ) : (
         <div className="relative aspect-video cursor-pointer group" onClick={() => setPlaying(true)}>
-          <img src={gthumb('gcc-2ddf9906-1b9f-4ce2-80e3-da11af723c7e')}
+          <img src={gthumb('gcc-b480fa3c-9cb6-4ce1-9364-ac9fb8710f65')}
             alt="Understanding life insurance" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             onError={e => { e.target.src = 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80' }} />
           <div className="absolute inset-0 bg-black/15 group-hover:bg-black/5 transition-colors" />
@@ -282,7 +280,7 @@ function PolicyVideoModal({ pv, onClose }) {
           <button onClick={onClose} className="text-gray-400 hover:text-navy transition-colors flex-shrink-0" aria-label="Close"><X size={20} /></button>
         </div>
         <div className="aspect-video bg-black">
-          <GCCVideoPlayer key={pv.gccId} videoId={pv.gccId || 'gcc-3048f3df-f2d0-419c-a8c1-c84a660f8897'} />
+          <GCCVideoPlayer key={pv.gccId} videoId={pv.gccId || 'gcc-b480fa3c-9cb6-4ce1-9364-ac9fb8710f65'} />
         </div>
         <div className="p-4"><p className="text-sm text-gray-600 leading-relaxed">{pv.summary}</p></div>
       </div>
@@ -506,43 +504,6 @@ export default function AcademyPage() {
         </div>
       </section>
 
-      {/* ── ALREADY A CUSTOMER BAND ────────────────────────── */}
-      <section className="py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-3xl overflow-hidden p-8 md:p-12" style={{ background: `linear-gradient(120deg, ${HDFC_BLUE} 0%, #0E1A3C 100%)` }}>
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(237,28,36,0.25),transparent_55%)]" />
-            <div className="relative grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <p className="text-red-light text-xs font-semibold uppercase tracking-wider mb-2">Already an HDFC Life customer?</p>
-                <h2 className="font-display text-2xl md:text-3xl font-bold text-white mb-3">See your policies and personalised video answers</h2>
-                <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-lg">
-                  Log in to My Policies to view your sum assured, premiums and tailored explainer videos for each plan you own.
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <Link href="/login" className="btn-red px-6 py-3 text-sm inline-flex items-center gap-2">Login <ArrowRight size={14} /></Link>
-                  <Link href="/portal" className="px-6 py-3 text-sm font-semibold rounded-lg border-2 border-white/40 text-white hover:border-white transition-all inline-flex items-center gap-2">Go to My Policies</Link>
-                </div>
-              </div>
-              <div className="hidden md:grid grid-cols-2 gap-3">
-                {[
-                  { icon: ShieldCheck, t: 'Your cover at a glance' },
-                  { icon: Play, t: 'Per-policy video answers' },
-                  { icon: Receipt, t: 'Premiums & receipts' },
-                  { icon: Baby, t: 'Plans for your family' },
-                ].map((c, i) => {
-                  const Icon = c.icon
-                  return (
-                    <div key={i} className="bg-white/10 border border-white/15 rounded-xl p-4">
-                      <Icon size={18} className="text-red-light mb-2" />
-                      <p className="text-white text-xs font-medium leading-snug">{c.t}</p>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }
