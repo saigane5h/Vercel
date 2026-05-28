@@ -36,9 +36,16 @@ function VideoOverlay({ videoId, title, onClose }) {
     return () => { document.body.style.overflow = ''; document.removeEventListener('keydown', onKey) }
   }, [onClose])
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-8" style={{ background: 'rgba(0,0,0,0.88)' }} onClick={onClose}>
-      <div className="relative w-full max-w-4xl" onClick={e => e.stopPropagation()}>
-        <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 sm:p-6" style={{ background: 'rgba(0,0,0,0.88)' }} onClick={onClose}>
+      <div
+        className="relative"
+        style={{ width: 'min(900px, 70vw, calc(75vh * 16 / 9))' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div
+          className="relative bg-black rounded-2xl overflow-hidden shadow-2xl"
+          style={{ aspectRatio: '16 / 9' }}
+        >
           <GCCVideoPlayer key={videoId} videoId={videoId} />
           <button onClick={onClose} className="absolute top-3 right-3 z-20 p-1.5 rounded-full bg-black/60 hover:bg-black/90 text-white" aria-label="Close"><X size={16} /></button>
         </div>

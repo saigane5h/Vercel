@@ -128,9 +128,16 @@ function GCCModal({ videos, startIndex, onClose }) {
   }, [onClose, videos.length])
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8" style={{ background: 'rgba(0,0,0,0.88)' }} onClick={onClose}>
-      <div className="relative w-full max-w-4xl" onClick={e => e.stopPropagation()}>
-        <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6" style={{ background: 'rgba(0,0,0,0.88)' }} onClick={onClose}>
+      <div
+        className="relative"
+        style={{ width: 'min(900px, 70vw, calc(75vh * 16 / 9))' }}
+        onClick={e => e.stopPropagation()}
+      >
+        <div
+          className="relative bg-black rounded-2xl overflow-hidden shadow-2xl"
+          style={{ aspectRatio: '16 / 9' }}
+        >
           <GCCVideoPlayer key={videos[current].id} videoId={videos[current].id} />
           <button onClick={onClose} className="absolute top-3 right-3 z-20 p-1.5 rounded-full bg-black/60 hover:bg-black/90 text-white/80 hover:text-white transition-all" aria-label="Close"><X size={16} /></button>
           <button onClick={e => { e.stopPropagation(); setCurrent(p => Math.max(0, p - 1)) }} disabled={current === 0}
@@ -271,7 +278,11 @@ function PolicyVideoModal({ pv, onClose }) {
   }, [onClose])
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
-      <div className="relative w-full max-w-3xl bg-white rounded-2xl overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+      <div
+        className="relative bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+        style={{ width: 'min(820px, 70vw, calc(82vh * 16 / 9))', maxHeight: '90vh' }}
+        onClick={e => e.stopPropagation()}
+      >
         <div className="flex items-start justify-between p-4 border-b border-gray-100">
           <div className="flex-1 pr-4">
             <span className={`badge ${pv.tagColor} mb-1`}>{pv.tag}</span>
