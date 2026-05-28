@@ -49,8 +49,7 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/login" className="ml-1 text-sm font-medium text-gray-600 hover:text-red transition-colors px-3 py-2">Login</Link>
-            <Link href="/portal" className="text-sm font-semibold text-white bg-red hover:bg-red-dark transition-colors px-4 py-2 rounded-lg">My Policies</Link>
+            <Link href="/portal" className="ml-1 text-sm font-semibold text-white bg-red hover:bg-red-dark transition-colors px-4 py-2 rounded-lg">My Policies</Link>
           </nav>
 
           <button className="md:hidden text-gray-600 hover:text-navy" onClick={() => setOpen(!open)}>
@@ -72,7 +71,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link href="/login" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-medium text-gray-600">Login</Link>
           <Link href="/portal" onClick={() => setOpen(false)} className="block px-3 py-2.5 text-sm font-semibold text-red">My Policies</Link>
         </div>
       )}

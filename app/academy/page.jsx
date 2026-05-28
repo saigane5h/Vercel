@@ -351,7 +351,7 @@ export default function AcademyPage() {
 
               <div className="flex flex-wrap gap-3">
                 <Link href="/courses" className="btn-red px-6 py-3 text-sm inline-flex items-center gap-2"><Play size={15} /> Explore videos</Link>
-                <Link href="/login" className="px-6 py-3 text-sm font-semibold rounded-lg border-2 border-gray-300 text-navy hover:border-red hover:text-red transition-all inline-flex items-center gap-2">Login to My Policies</Link>
+                <Link href="/portal" className="px-6 py-3 text-sm font-semibold rounded-lg border-2 border-gray-300 text-navy hover:border-red hover:text-red transition-all inline-flex items-center gap-2">Go to My Policies</Link>
               </div>
             </div>
             <HeroVideo />
