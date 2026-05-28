@@ -54,14 +54,12 @@ export default function LoginPage() {
       {/* Top logo bar */}
       <div className="border-b border-gray-200 px-6 py-4">
         <Link href="/academy" className="inline-flex items-center gap-2">
-          <span className="relative inline-flex items-center justify-center w-12 h-12 rounded-md bg-red text-white">
-            <span className="font-extrabold text-[11px] leading-tight tracking-tight text-center">HDFC<br/>Life</span>
-          </span>
-          <span className="text-red italic text-[11px] font-semibold leading-none">Sar&apos;utha ke&nbsp;jiyo!</span>
+          <span className="w-9 h-9 rounded bg-red flex items-center justify-center text-white font-extrabold">H</span>
+          <span className="font-bold text-navy text-lg">HDFC Life</span>
         </Link>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-2 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 grid lg:grid-cols-2 gap-8 items-start">
 
         {/* ── LEFT: login card ───────────────────────────── */}
         <div className="border border-gray-200 rounded-xl p-6 shadow-sm">
@@ -110,9 +108,9 @@ export default function LoginPage() {
           <form onSubmit={handleProceed} className="space-y-6">
             {/* Country code + identifier */}
             {tab === 'Mobile No' ? (
-              <div className="grid grid-cols-[80px_1fr] gap-4">
+              <div className="grid grid-cols-[120px_1fr] gap-4">
                 <div>
-                  <label className="block text-[11px] text-gray-500 mb-1">
+                  <label className="block text-[11px] text-gray-500 mb-1 whitespace-nowrap">
                     Country Code <span className="text-red">*</span>
                   </label>
                   <input
@@ -172,23 +170,23 @@ export default function LoginPage() {
               <label className="block text-[11px] text-gray-500 mb-1">
                 Captcha <span className="text-red">*</span>
               </label>
-              <div className="flex items-end gap-3 border-b border-gray-300 focus-within:border-red">
+              <div className="flex items-center gap-3 border-b border-gray-300 focus-within:border-red py-1">
                 <input
                   value={captcha}
                   onChange={(e) => setCaptcha(e.target.value)}
                   required
                   placeholder="Please enter captcha"
-                  className="flex-1 py-2 text-sm text-navy placeholder:text-gray-400 focus:outline-none"
+                  className="flex-1 min-w-0 py-2 text-sm text-navy placeholder:text-gray-400 focus:outline-none"
                 />
                 <span
-                  className="select-none bg-gradient-to-b from-gray-700 to-gray-900 text-white font-bold tracking-[0.35em] text-base px-3 py-1.5 rounded-md italic skew-x-[-6deg] shadow-inner"
+                  className="flex-shrink-0 select-none bg-gradient-to-b from-gray-700 to-gray-900 text-white font-bold tracking-[0.3em] text-sm px-2.5 py-1.5 rounded italic shadow-inner"
                   aria-label="Captcha code">
                   {captchaCode}
                 </span>
                 <button
                   type="button"
                   onClick={refreshCaptcha}
-                  className="p-1 text-gray-400 hover:text-red"
+                  className="flex-shrink-0 p-1 text-gray-400 hover:text-red"
                   aria-label="Refresh captcha">
                   <RefreshCw size={16} />
                 </button>
@@ -262,16 +260,18 @@ export default function LoginPage() {
               <p className="font-bold text-navy mb-3 inline-flex items-center gap-1">
                 USEFUL LINKS <ExternalLink size={12} className="text-navy" />
               </p>
-              <div className="grid sm:grid-cols-3 gap-y-2 text-sm">
+              <ul className="columns-1 sm:columns-3 gap-x-6 space-y-2 text-sm">
                 {USEFUL_LINKS.map((l) => (
-                  <span key={l} className="text-red inline-flex items-center gap-1">
-                    <ChevronRight size={12} /> {l}
-                  </span>
+                  <li key={l} className="text-red break-inside-avoid flex items-start gap-1">
+                    <ChevronRight size={12} className="mt-1 flex-shrink-0" />
+                    <span>{l}</span>
+                  </li>
                 ))}
-                <Link href="/academy" className="text-red font-semibold inline-flex items-center gap-1">
-                  <ChevronRight size={12} /> Academy
-                </Link>
-              </div>
+                <li className="break-inside-avoid flex items-start gap-1">
+                  <ChevronRight size={12} className="mt-1 flex-shrink-0 text-red" />
+                  <Link href="/academy" className="text-red font-semibold">Academy</Link>
+                </li>
+              </ul>
             </div>
           </div>
 
